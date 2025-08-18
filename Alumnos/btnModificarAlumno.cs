@@ -48,5 +48,10 @@ namespace Roll_Call.Alumnos
             ReleaseCapture();//Mueve el formulario al hacer clic y arrastrar
             SendMessage(Handle, 0x112, 0xf012, 0);
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

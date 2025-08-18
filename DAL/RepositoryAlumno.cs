@@ -94,10 +94,6 @@ namespace Roll_Call.DAL
                 MessageBox.Show($"No se pudieron obtener los datos: {ex.Message}");
                 return 0; // Retorna 0 en caso de error
             }
-            finally
-            {
-                ObjetoConexion.cerrar();
-            }
         }
     }
 }

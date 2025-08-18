@@ -84,6 +84,7 @@ namespace Roll_Call.Alumnos
             else
             {
                 Console.WriteLine("Formato de fecha inválido");
+                return;
             }
 
             alumno.Nombre = txtNombre.Text; //string

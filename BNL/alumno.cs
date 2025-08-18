@@ -15,6 +15,14 @@ namespace Roll_Call.BNL
         public string Correo;
         public string Estatus;
 
+        private List<string> GenerarLista()
+        {
+            List<string> result = new List<string>();
+            result.Add(Apellidos);
+            result.Add(Nombre);
+            return result;
+        }
+
         public (bool,string) validarDatos()
         {
             string mensaje = "";
@@ -28,16 +36,16 @@ namespace Roll_Call.BNL
             if (!isValid)
                 return (false, mensaje);
 
-            (isValid, mensaje) = ValidarTexto(Nombre);
-            if (!isValid)
-                return (false, mensaje);
-
-            (isValid, mensaje) = ValidarTexto(Apellidos);
-            if (!isValid)
-                return (false, mensaje);
+            foreach (var item in GenerarLista())
+            {
+                (isValid, mensaje) = ValidarTexto(item);
+                if (!isValid)
+                    return (false, mensaje);
+            }
 
             return (isValid, mensaje);
         }
+
 
         private (bool, string) ValidarFecha(string fecha)
         {
@@ -72,6 +80,7 @@ namespace Roll_Call.BNL
             {
                 return (false, "El dominio debe contener al menos un punto '.'");
             }
+
             return (true, "");
         }
 
@@ -87,7 +96,7 @@ namespace Roll_Call.BNL
 
                 if ("[]{};.,".Contains(c))  // Caracteres prohibidos explícitos
                 {
-                    return (false, $"Carácter no permitido: '{c}'");
+                    return (false, $"Carácter no permitido: '{c}' ");
                 }
             }
             return (true, "");

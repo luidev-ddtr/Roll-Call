@@ -41,6 +41,11 @@ namespace Roll_Call
 
         private void btnModificarAlumno_Click(object sender, EventArgs e)
         {
+            object datoAlumno = dgvAlumnos.DataSource;
+            MessageBox.Show(datoAlumno.GetType().ToString());
+
+            //foreach (var o in datoAlumno)
+            //    MessageBox.Show(o.ToString());
             btnModificarAlumno ventana = new btnModificarAlumno();
             ventana.Show();
         }

@@ -156,6 +156,8 @@
     <Content Include="Img\Decoración_btn.png" />
     <Content Include="Img\fondo gris.png" />
     <Content Include="Img\Fondo.png" />
+    <Content Include="scripts\generar_reportes.py" />
+    <Content Include="scripts\__init__.py" />
     <None Include="Resources\Ico_Asistencias.png" />
     <None Include="Img\Logo.jpg" />
     <None Include="Img\gris patron.png" />
