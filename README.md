@@ -34,3 +34,6 @@ Actualmente, el desarrollo se enfoca en las siguientes áreas:
 * **Generación de Reportes:** Se está trabajando en el módulo para generar reportes, el cual utilizará los datos de los modelos y los repositorios para construir la información final.
 
 Esta arquitectura facilita el desarrollo en equipo y garantiza que cualquier modificación en la base de datos, como cambiar el nombre de una columna, solo requiera ajustes en la capa `DAL`, sin afectar la lógica del resto del programa.
+
+
+# Sau saul Sauloso de monterrey
