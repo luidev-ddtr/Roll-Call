@@ -18,6 +18,8 @@ namespace Roll_Call
             DAL.conexion conexion = new DAL.conexion();
 
             conexion.establecerConexion(); // se establece
+
+            AbrirFormularioEnPanel(new Asistencias()); // Abre el formulario de asistencias al iniciar
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)

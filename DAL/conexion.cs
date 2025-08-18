@@ -11,12 +11,12 @@ namespace Roll_Call.DAL
 {
     internal class conexion
     {
-        public static string cadenaBD = "Data Source=ANGEL\\SQLEXPRESS;Initial Catalog=CONTROL_ESCOLAR;Integrated Security=True;TrustServerCertificate=True;";
+        public static string cadenaBD = "Data Source=localhost\\SQLEXPRESS01;Initial Catalog=CONTROL_ESCOLAR;Integrated Security=True;TrustServerCertificate=True;";
 
         public SqlConnection cursor = new SqlConnection();
 
         private string cadena =
-            "Data Source=ANGEL\\SQLEXPRESS;" + //Aqui Cambiar el usuario
+            "Data Source=localhost\\SQLEXPRESS01;" + //Aqui Cambiar el usuario
             "Initial Catalog=CONTROL_ESCOLAR;" +
             "Integrated Security=True;" +
             "TrustServerCertificate=True;";
