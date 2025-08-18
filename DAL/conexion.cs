@@ -11,6 +11,8 @@ namespace Roll_Call.DAL
 {
     internal class conexion
     {
+        public static string cadenaBD = "Data Source=ANGEL\\SQLEXPRESS;Initial Catalog=CONTROL_ESCOLAR;Integrated Security=True;TrustServerCertificate=True;";
+
         public SqlConnection cursor = new SqlConnection();
 
         private string cadena =
