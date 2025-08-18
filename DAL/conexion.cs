@@ -98,7 +98,7 @@ namespace Roll_Call.DAL
         /// <param name="query">Consulta SQL a ejecutar</param>
         /// <param name="mostrarMensajes">True para mostrar mensajes de depuración</param>
         /// <returns>Número de filas afectadas</returns>
-        public int EjecutarQuery(string query, bool mostrarMensajes = true)
+        public int EjecutarQuery(string query, bool mostrarMensajes = false)
         {
             int filasAfectadas = 0;
 

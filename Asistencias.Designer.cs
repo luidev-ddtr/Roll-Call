@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRegistrarAsistencia = new System.Windows.Forms.Button();
-            this.btnGenerarReporte = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.cbxMateria = new System.Windows.Forms.ComboBox();
@@ -79,22 +78,6 @@
             this.btnRegistrarAsistencia.UseVisualStyleBackColor = false;
             this.btnRegistrarAsistencia.Click += new System.EventHandler(this.btnRegistrarAsistencia_Click);
             // 
-            // btnGenerarReporte
-            // 
-            this.btnGenerarReporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnGenerarReporte.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnGenerarReporte.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Green;
-            this.btnGenerarReporte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
-            this.btnGenerarReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerarReporte.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerarReporte.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGenerarReporte.Location = new System.Drawing.Point(581, 898);
-            this.btnGenerarReporte.Name = "btnGenerarReporte";
-            this.btnGenerarReporte.Size = new System.Drawing.Size(380, 72);
-            this.btnGenerarReporte.TabIndex = 3;
-            this.btnGenerarReporte.Text = "Generar reporte";
-            this.btnGenerarReporte.UseVisualStyleBackColor = false;
-            // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -110,6 +93,7 @@
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // dtpFecha
             // 
@@ -288,7 +272,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvAsistencias);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnGenerarReporte);
             this.Controls.Add(this.btnRegistrarAsistencia);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -305,7 +288,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnRegistrarAsistencia;
-        private System.Windows.Forms.Button btnGenerarReporte;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.ComboBox cbxMateria;

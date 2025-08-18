@@ -19,8 +19,8 @@ namespace Roll_Call
             InitializeComponent();
             CargarDatos(); // Carga los datos de los alumnos al iniciar el formulario
             CargarMaterias(); // Carga las materias al iniciar el formulario
-          this.BackgroundImage = Properties.Resources.gris_patron;
-           this.BackgroundImageLayout = ImageLayout.Stretch;
+            this.BackgroundImage = Properties.Resources.gris_patron;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void Asistencias_Load(object sender, EventArgs e)
@@ -143,6 +143,12 @@ namespace Roll_Call
             {
                 MessageBox.Show("Error al registrar la asistencia: " + ex.Message);
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            cbxMateria.SelectedIndex = 0;
+            dgvAsistencias.ClearSelection();
         }
     }
 }

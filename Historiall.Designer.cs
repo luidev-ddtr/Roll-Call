@@ -32,7 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.btnModificarHistorial = new System.Windows.Forms.Button();
-            this.btnEliminarHistorial = new System.Windows.Forms.Button();
+            this.btnGenerarReporte = new System.Windows.Forms.Button();
             this.dtpBuscarFecha = new System.Windows.Forms.DateTimePicker();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvHistorial = new System.Windows.Forms.DataGridView();
@@ -68,21 +68,21 @@
             this.btnModificarHistorial.UseVisualStyleBackColor = false;
             this.btnModificarHistorial.Click += new System.EventHandler(this.btnModificarHistorial_Click);
             // 
-            // btnEliminarHistorial
+            // btnGenerarReporte
             // 
-            this.btnEliminarHistorial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnEliminarHistorial.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnEliminarHistorial.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Green;
-            this.btnEliminarHistorial.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
-            this.btnEliminarHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarHistorial.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarHistorial.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEliminarHistorial.Location = new System.Drawing.Point(960, 896);
-            this.btnEliminarHistorial.Name = "btnEliminarHistorial";
-            this.btnEliminarHistorial.Size = new System.Drawing.Size(380, 72);
-            this.btnEliminarHistorial.TabIndex = 3;
-            this.btnEliminarHistorial.Text = "Eliminar";
-            this.btnEliminarHistorial.UseVisualStyleBackColor = false;
+            this.btnGenerarReporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnGenerarReporte.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnGenerarReporte.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Green;
+            this.btnGenerarReporte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.btnGenerarReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerarReporte.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerarReporte.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGenerarReporte.Location = new System.Drawing.Point(960, 896);
+            this.btnGenerarReporte.Name = "btnGenerarReporte";
+            this.btnGenerarReporte.Size = new System.Drawing.Size(380, 72);
+            this.btnGenerarReporte.TabIndex = 3;
+            this.btnGenerarReporte.Text = "Generar reporte";
+            this.btnGenerarReporte.UseVisualStyleBackColor = false;
             // 
             // dtpBuscarFecha
             // 
@@ -127,6 +127,7 @@
             this.dgvHistorial.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvHistorial.Location = new System.Drawing.Point(76, 158);
             this.dgvHistorial.Name = "dgvHistorial";
+            this.dgvHistorial.ReadOnly = true;
             this.dgvHistorial.Size = new System.Drawing.Size(1403, 688);
             this.dgvHistorial.TabIndex = 10;
             // 
@@ -139,7 +140,7 @@
             this.Controls.Add(this.dgvHistorial);
             this.Controls.Add(this.dtpBuscarFecha);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnEliminarHistorial);
+            this.Controls.Add(this.btnGenerarReporte);
             this.Controls.Add(this.btnModificarHistorial);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -156,7 +157,7 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnModificarHistorial;
-        private System.Windows.Forms.Button btnEliminarHistorial;
+        private System.Windows.Forms.Button btnGenerarReporte;
         private System.Windows.Forms.DateTimePicker dtpBuscarFecha;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dgvHistorial;
