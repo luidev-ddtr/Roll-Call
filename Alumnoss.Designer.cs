@@ -44,21 +44,20 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 51F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(92, 89);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(61, 58);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(454, 115);
+            this.label1.Size = new System.Drawing.Size(304, 78);
             this.label1.TabIndex = 0;
             this.label1.Text = "Alumnos";
             // 
             // dgvAlumnos
             // 
+            this.dgvAlumnos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAlumnos.Location = new System.Drawing.Point(108, 265);
-            this.dgvAlumnos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvAlumnos.Location = new System.Drawing.Point(72, 172);
             this.dgvAlumnos.Name = "dgvAlumnos";
             this.dgvAlumnos.RowHeadersWidth = 62;
-            this.dgvAlumnos.Size = new System.Drawing.Size(2120, 1006);
+            this.dgvAlumnos.Size = new System.Drawing.Size(1413, 654);
             this.dgvAlumnos.TabIndex = 1;
             this.dgvAlumnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnos_CellContentClick);
             // 
@@ -71,10 +70,9 @@
             this.btnAñadirAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAñadirAlumno.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAñadirAlumno.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAñadirAlumno.Location = new System.Drawing.Point(112, 1386);
-            this.btnAñadirAlumno.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAñadirAlumno.Location = new System.Drawing.Point(75, 901);
             this.btnAñadirAlumno.Name = "btnAñadirAlumno";
-            this.btnAñadirAlumno.Size = new System.Drawing.Size(570, 111);
+            this.btnAñadirAlumno.Size = new System.Drawing.Size(380, 72);
             this.btnAñadirAlumno.TabIndex = 2;
             this.btnAñadirAlumno.Text = "Añadir";
             this.btnAñadirAlumno.UseVisualStyleBackColor = false;
@@ -89,10 +87,9 @@
             this.btnModificarAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificarAlumno.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificarAlumno.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnModificarAlumno.Location = new System.Drawing.Point(900, 1386);
-            this.btnModificarAlumno.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnModificarAlumno.Location = new System.Drawing.Point(600, 901);
             this.btnModificarAlumno.Name = "btnModificarAlumno";
-            this.btnModificarAlumno.Size = new System.Drawing.Size(570, 111);
+            this.btnModificarAlumno.Size = new System.Drawing.Size(380, 72);
             this.btnModificarAlumno.TabIndex = 3;
             this.btnModificarAlumno.Text = "Modificar";
             this.btnModificarAlumno.UseVisualStyleBackColor = false;
@@ -107,10 +104,9 @@
             this.btnEliminarAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarAlumno.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarAlumno.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEliminarAlumno.Location = new System.Drawing.Point(1658, 1386);
-            this.btnEliminarAlumno.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEliminarAlumno.Location = new System.Drawing.Point(1105, 901);
             this.btnEliminarAlumno.Name = "btnEliminarAlumno";
-            this.btnEliminarAlumno.Size = new System.Drawing.Size(570, 111);
+            this.btnEliminarAlumno.Size = new System.Drawing.Size(380, 72);
             this.btnEliminarAlumno.TabIndex = 4;
             this.btnEliminarAlumno.Text = "Eliminar";
             this.btnEliminarAlumno.UseVisualStyleBackColor = false;
@@ -119,10 +115,9 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Roll_Call.Properties.Resources.BuscadorIcono;
-            this.pictureBox1.Location = new System.Drawing.Point(1342, 105);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(895, 68);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 111);
+            this.pictureBox1.Size = new System.Drawing.Size(85, 72);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
@@ -130,20 +125,19 @@
             // 
             this.txtBuscadorAlumnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBuscadorAlumnos.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscadorAlumnos.Location = new System.Drawing.Point(1473, 129);
-            this.txtBuscadorAlumnos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtBuscadorAlumnos.Location = new System.Drawing.Point(982, 84);
             this.txtBuscadorAlumnos.Multiline = true;
             this.txtBuscadorAlumnos.Name = "txtBuscadorAlumnos";
-            this.txtBuscadorAlumnos.Size = new System.Drawing.Size(712, 86);
+            this.txtBuscadorAlumnos.Size = new System.Drawing.Size(475, 56);
             this.txtBuscadorAlumnos.TabIndex = 6;
             // 
             // Alumnoss
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.BackgroundImage = global::Roll_Call.Properties.Resources.gris_patron;
-            this.ClientSize = new System.Drawing.Size(2331, 1545);
+            this.ClientSize = new System.Drawing.Size(1554, 949);
             this.Controls.Add(this.txtBuscadorAlumnos);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnEliminarAlumno);
@@ -152,7 +146,6 @@
             this.Controls.Add(this.dgvAlumnos);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Alumnoss";
             this.Text = "Alumnos";
             this.Load += new System.EventHandler(this.Alumnos_Load);

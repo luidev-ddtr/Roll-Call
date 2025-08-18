@@ -28,23 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvAsistencias = new System.Windows.Forms.DataGridView();
             this.btnRegistrarAsistencia = new System.Windows.Forms.Button();
             this.btnGenerarReporte = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.txtFechaLista = new System.Windows.Forms.TextBox();
-            this.txtGrupo = new System.Windows.Forms.TextBox();
-            this.txtPeriodo = new System.Windows.Forms.TextBox();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.cbxMateria = new System.Windows.Forms.ComboBox();
+            this.txtPeriodo = new System.Windows.Forms.TextBox();
+            this.txtGrupo = new System.Windows.Forms.TextBox();
+            this.txtFechaLista = new System.Windows.Forms.TextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dgvAsistencias = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsistencias)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,14 +61,6 @@
             this.label1.Size = new System.Drawing.Size(324, 82);
             this.label1.TabIndex = 0;
             this.label1.Text = "Asistencias";
-            // 
-            // dgvAsistencias
-            // 
-            this.dgvAsistencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAsistencias.Location = new System.Drawing.Point(80, 343);
-            this.dgvAsistencias.Name = "dgvAsistencias";
-            this.dgvAsistencias.Size = new System.Drawing.Size(1414, 490);
-            this.dgvAsistencias.TabIndex = 1;
             // 
             // btnRegistrarAsistencia
             // 
@@ -82,6 +77,7 @@
             this.btnRegistrarAsistencia.TabIndex = 2;
             this.btnRegistrarAsistencia.Text = "Registar asistencia";
             this.btnRegistrarAsistencia.UseVisualStyleBackColor = false;
+            this.btnRegistrarAsistencia.Click += new System.EventHandler(this.btnRegistrarAsistencia_Click_1);
             // 
             // btnGenerarReporte
             // 
@@ -115,114 +111,16 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
-            // label2
+            // dtpFecha
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(116, 152);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 35);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Fecha:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(116, 262);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 35);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Grupo:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(887, 152);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 35);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Período:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(890, 262);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 35);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Materia:";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.panel1.Location = new System.Drawing.Point(122, 202);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(719, 10);
-            this.panel1.TabIndex = 9;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel2.Location = new System.Drawing.Point(122, 300);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(724, 10);
-            this.panel2.TabIndex = 10;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel3.Location = new System.Drawing.Point(883, 202);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(611, 10);
-            this.panel3.TabIndex = 11;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.panel4.Location = new System.Drawing.Point(883, 300);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(611, 10);
-            this.panel4.TabIndex = 12;
-            // 
-            // txtFechaLista
-            // 
-            this.txtFechaLista.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtFechaLista.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFechaLista.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaLista.Location = new System.Drawing.Point(219, 152);
-            this.txtFechaLista.Multiline = true;
-            this.txtFechaLista.Name = "txtFechaLista";
-            this.txtFechaLista.Size = new System.Drawing.Size(622, 35);
-            this.txtFechaLista.TabIndex = 13;
-            // 
-            // txtGrupo
-            // 
-            this.txtGrupo.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtGrupo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtGrupo.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGrupo.Location = new System.Drawing.Point(222, 256);
-            this.txtGrupo.Multiline = true;
-            this.txtGrupo.Name = "txtGrupo";
-            this.txtGrupo.Size = new System.Drawing.Size(622, 35);
-            this.txtGrupo.TabIndex = 14;
-            // 
-            // txtPeriodo
-            // 
-            this.txtPeriodo.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtPeriodo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPeriodo.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPeriodo.Location = new System.Drawing.Point(1013, 149);
-            this.txtPeriodo.Multiline = true;
-            this.txtPeriodo.Name = "txtPeriodo";
-            this.txtPeriodo.Size = new System.Drawing.Size(481, 37);
-            this.txtPeriodo.TabIndex = 15;
+            this.dtpFecha.CalendarFont = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFecha.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha.Location = new System.Drawing.Point(171, 157);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(622, 29);
+            this.dtpFecha.TabIndex = 32;
+            this.dtpFecha.Value = new System.DateTime(2025, 8, 17, 0, 0, 0, 0);
             // 
             // cbxMateria
             // 
@@ -230,10 +128,144 @@
             this.cbxMateria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxMateria.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxMateria.FormattingEnabled = true;
-            this.cbxMateria.Location = new System.Drawing.Point(1010, 256);
+            this.cbxMateria.Location = new System.Drawing.Point(1004, 255);
             this.cbxMateria.Name = "cbxMateria";
             this.cbxMateria.Size = new System.Drawing.Size(484, 33);
-            this.cbxMateria.TabIndex = 16;
+            this.cbxMateria.TabIndex = 31;
+            // 
+            // txtPeriodo
+            // 
+            this.txtPeriodo.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtPeriodo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPeriodo.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPeriodo.Location = new System.Drawing.Point(1004, 157);
+            this.txtPeriodo.Name = "txtPeriodo";
+            this.txtPeriodo.Size = new System.Drawing.Size(481, 28);
+            this.txtPeriodo.TabIndex = 30;
+            // 
+            // txtGrupo
+            // 
+            this.txtGrupo.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtGrupo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtGrupo.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGrupo.Location = new System.Drawing.Point(171, 260);
+            this.txtGrupo.Name = "txtGrupo";
+            this.txtGrupo.Size = new System.Drawing.Size(622, 28);
+            this.txtGrupo.TabIndex = 29;
+            // 
+            // txtFechaLista
+            // 
+            this.txtFechaLista.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtFechaLista.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFechaLista.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFechaLista.Location = new System.Drawing.Point(171, 158);
+            this.txtFechaLista.Name = "txtFechaLista";
+            this.txtFechaLista.Size = new System.Drawing.Size(622, 28);
+            this.txtFechaLista.TabIndex = 28;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.panel4.Location = new System.Drawing.Point(877, 299);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(611, 10);
+            this.panel4.TabIndex = 27;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel3.Location = new System.Drawing.Point(877, 201);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(611, 10);
+            this.panel3.TabIndex = 26;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel2.Location = new System.Drawing.Point(74, 299);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(719, 10);
+            this.panel2.TabIndex = 25;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.panel1.Location = new System.Drawing.Point(74, 201);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(719, 10);
+            this.panel1.TabIndex = 24;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(883, 250);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(120, 35);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Materia:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(881, 151);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(122, 35);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Período:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(67, 250);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(103, 35);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Grupo:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(68, 151);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 35);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Fecha:";
+            // 
+            // dgvAsistencias
+            // 
+            this.dgvAsistencias.AllowUserToAddRows = false;
+            this.dgvAsistencias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAsistencias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvAsistencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAsistencias.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvAsistencias.Location = new System.Drawing.Point(74, 342);
+            this.dgvAsistencias.Name = "dgvAsistencias";
+            this.dgvAsistencias.ReadOnly = true;
+            this.dgvAsistencias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAsistencias.Size = new System.Drawing.Size(1414, 512);
+            this.dgvAsistencias.TabIndex = 19;
             // 
             // Asistencias
             // 
@@ -241,6 +273,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Roll_Call.Properties.Resources.gris_patron;
             this.ClientSize = new System.Drawing.Size(1554, 1004);
+            this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.cbxMateria);
             this.Controls.Add(this.txtPeriodo);
             this.Controls.Add(this.txtGrupo);
@@ -253,10 +286,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.dgvAsistencias);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGenerarReporte);
             this.Controls.Add(this.btnRegistrarAsistencia);
-            this.Controls.Add(this.dgvAsistencias);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Asistencias";
@@ -271,21 +304,22 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvAsistencias;
         private System.Windows.Forms.Button btnRegistrarAsistencia;
         private System.Windows.Forms.Button btnGenerarReporte;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox txtFechaLista;
-        private System.Windows.Forms.TextBox txtGrupo;
-        private System.Windows.Forms.TextBox txtPeriodo;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.ComboBox cbxMateria;
+        private System.Windows.Forms.TextBox txtPeriodo;
+        private System.Windows.Forms.TextBox txtGrupo;
+        private System.Windows.Forms.TextBox txtFechaLista;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dgvAsistencias;
     }
 }
