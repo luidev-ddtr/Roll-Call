@@ -35,7 +35,7 @@ namespace Roll_Call
 
             // Ajustar el formulario a la pantalla principal
             StartPosition = FormStartPosition.Manual;
-            Bounds = Screen.PrimaryScreen.Bounds; // Ocupa todo el área visible
+            //Bounds = Screen.PrimaryScreen.Bounds; // Ocupa todo el área visible
             FormBorderStyle = FormBorderStyle.None; // Sin bordes ni barra de título
             panelPrincipal.BackgroundImage = Properties.Resources.gris_patron;
             panelPrincipal.BackgroundImageLayout=ImageLayout.Stretch;
