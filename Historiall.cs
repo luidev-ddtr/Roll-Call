@@ -17,6 +17,8 @@ namespace Roll_Call
         public Historiall()
         {
             InitializeComponent();
+            this.BackgroundImage = Properties.Resources.gris_patron;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void Historial_Load(object sender, EventArgs e)

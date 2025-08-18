@@ -13,7 +13,6 @@ namespace Roll_Call.Alumnos
 {
     public partial class btnAñadirAlumno : Form
     {
-        public event Action DatosActualizados;
 
         private Dictionary<string, int> materiasDictionary = new Dictionary<string, int>()
             {
@@ -113,7 +112,8 @@ namespace Roll_Call.Alumnos
                 handerCursa.IngresarRegistro(alumno, misMaterias);
 
                 //Actualizar la interfaz padre:
-                DatosActualizados?.Invoke();
+
+                //handlerAlumno.mostrarEmpleados();
                 this.Close();
             }
             catch (Exception ex)

@@ -34,8 +34,6 @@ namespace Roll_Call.DAL
                         '{periodo}',  
                         '{calificacion}')";
 
-                        MessageBox.Show($"Query que se enviará a la BD:\n{query}", "Datos a Insertar");
-
                         ObjetoConexion.EjecutarQuery(query);
                         MessageBox.Show("Alumno ingresado correctamente", "Éxito");
                 }

@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cbxMaterias = new System.Windows.Forms.ComboBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.txtFechaNac = new System.Windows.Forms.TextBox();
             this.txtApellidos = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtMatricula = new System.Windows.Forms.TextBox();
             this.btnSalirModificarAlumno = new System.Windows.Forms.Button();
             this.btnGuardarModificarAlumno = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -45,6 +43,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtMatricula = new System.Windows.Forms.TextBox();
+            this.txtMaterias = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +52,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.cbxMaterias);
+            this.panel1.Controls.Add(this.txtMaterias);
             this.panel1.Controls.Add(this.txtCorreo);
             this.panel1.Controls.Add(this.txtFechaNac);
             this.panel1.Controls.Add(this.txtApellidos);
@@ -75,23 +75,12 @@
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
-            // cbxMaterias
-            // 
-            this.cbxMaterias.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.cbxMaterias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxMaterias.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxMaterias.FormattingEnabled = true;
-            this.cbxMaterias.Location = new System.Drawing.Point(94, 688);
-            this.cbxMaterias.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cbxMaterias.Name = "cbxMaterias";
-            this.cbxMaterias.Size = new System.Drawing.Size(480, 37);
-            this.cbxMaterias.TabIndex = 16;
-            // 
             // txtCorreo
             // 
             this.txtCorreo.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtCorreo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCorreo.Location = new System.Drawing.Point(94, 586);
+            this.txtCorreo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCorreo.Location = new System.Drawing.Point(94, 579);
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCorreo.Multiline = true;
             this.txtCorreo.Name = "txtCorreo";
@@ -102,19 +91,22 @@
             // 
             this.txtFechaNac.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtFechaNac.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFechaNac.Location = new System.Drawing.Point(96, 498);
+            this.txtFechaNac.Enabled = false;
+            this.txtFechaNac.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFechaNac.Location = new System.Drawing.Point(96, 496);
             this.txtFechaNac.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFechaNac.Multiline = true;
             this.txtFechaNac.Name = "txtFechaNac";
             this.txtFechaNac.Size = new System.Drawing.Size(482, 43);
             this.txtFechaNac.TabIndex = 14;
+            this.txtFechaNac.TextChanged += new System.EventHandler(this.txtFechaNac_TextChanged);
             // 
             // txtApellidos
             // 
             this.txtApellidos.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtApellidos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtApellidos.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellidos.Location = new System.Drawing.Point(96, 418);
+            this.txtApellidos.Location = new System.Drawing.Point(96, 407);
             this.txtApellidos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtApellidos.Multiline = true;
             this.txtApellidos.Name = "txtApellidos";
@@ -126,24 +118,12 @@
             this.txtNombre.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNombre.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(96, 329);
+            this.txtNombre.Location = new System.Drawing.Point(96, 320);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNombre.Multiline = true;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(482, 43);
             this.txtNombre.TabIndex = 12;
-            // 
-            // txtMatricula
-            // 
-            this.txtMatricula.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtMatricula.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMatricula.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMatricula.Location = new System.Drawing.Point(96, 235);
-            this.txtMatricula.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtMatricula.Multiline = true;
-            this.txtMatricula.Name = "txtMatricula";
-            this.txtMatricula.Size = new System.Drawing.Size(482, 43);
-            this.txtMatricula.TabIndex = 11;
             // 
             // btnSalirModificarAlumno
             // 
@@ -151,7 +131,7 @@
             this.btnSalirModificarAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalirModificarAlumno.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalirModificarAlumno.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSalirModificarAlumno.Location = new System.Drawing.Point(358, 758);
+            this.btnSalirModificarAlumno.Location = new System.Drawing.Point(352, 758);
             this.btnSalirModificarAlumno.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSalirModificarAlumno.Name = "btnSalirModificarAlumno";
             this.btnSalirModificarAlumno.Size = new System.Drawing.Size(240, 58);
@@ -166,18 +146,19 @@
             this.btnGuardarModificarAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarModificarAlumno.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarModificarAlumno.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGuardarModificarAlumno.Location = new System.Drawing.Point(74, 758);
+            this.btnGuardarModificarAlumno.Location = new System.Drawing.Point(68, 758);
             this.btnGuardarModificarAlumno.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGuardarModificarAlumno.Name = "btnGuardarModificarAlumno";
             this.btnGuardarModificarAlumno.Size = new System.Drawing.Size(240, 58);
             this.btnGuardarModificarAlumno.TabIndex = 9;
             this.btnGuardarModificarAlumno.Text = "Guardar";
             this.btnGuardarModificarAlumno.UseVisualStyleBackColor = false;
+            this.btnGuardarModificarAlumno.Click += new System.EventHandler(this.btnGuardarModificarAlumno_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(78, 652);
+            this.label7.Location = new System.Drawing.Point(77, 643);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(74, 20);
@@ -187,7 +168,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(78, 557);
+            this.label6.Location = new System.Drawing.Point(78, 549);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 20);
@@ -197,7 +178,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(69, 474);
+            this.label5.Location = new System.Drawing.Point(69, 464);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(161, 20);
@@ -207,7 +188,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(69, 388);
+            this.label4.Location = new System.Drawing.Point(69, 377);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 20);
@@ -217,7 +198,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(69, 303);
+            this.label3.Location = new System.Drawing.Point(69, 287);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 20);
@@ -227,7 +208,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(69, 211);
+            this.label2.Location = new System.Drawing.Point(69, 194);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 20);
@@ -256,6 +237,32 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            // 
+            // txtMatricula
+            // 
+            this.txtMatricula.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtMatricula.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMatricula.Enabled = false;
+            this.txtMatricula.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMatricula.Location = new System.Drawing.Point(96, 228);
+            this.txtMatricula.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMatricula.Multiline = true;
+            this.txtMatricula.Name = "txtMatricula";
+            this.txtMatricula.Size = new System.Drawing.Size(482, 43);
+            this.txtMatricula.TabIndex = 11;
+            this.txtMatricula.TextChanged += new System.EventHandler(this.txtMatricula_TextChanged);
+            // 
+            // txtMaterias
+            // 
+            this.txtMaterias.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtMaterias.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMaterias.Enabled = false;
+            this.txtMaterias.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaterias.Location = new System.Drawing.Point(92, 677);
+            this.txtMaterias.Multiline = true;
+            this.txtMaterias.Name = "txtMaterias";
+            this.txtMaterias.Size = new System.Drawing.Size(486, 43);
+            this.txtMaterias.TabIndex = 16;
             // 
             // btnModificarAlumno
             // 
@@ -291,12 +298,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnSalirModificarAlumno;
         private System.Windows.Forms.Button btnGuardarModificarAlumno;
-        private System.Windows.Forms.ComboBox cbxMaterias;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.TextBox txtFechaNac;
         private System.Windows.Forms.TextBox txtApellidos;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtMatricula;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtMatricula;
+        private System.Windows.Forms.TextBox txtMaterias;
     }
 }

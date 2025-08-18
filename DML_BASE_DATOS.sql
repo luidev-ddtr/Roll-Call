@@ -19,6 +19,19 @@ CREATE TABLE ASIGNATURA (
 
 );
 
+select * from ALUMNO 
+where Matricula = 4
+
+
+select STRING_AGG(ASIGNATURA.Nombre, ', ')
+from ASIGNATURA, CURSA, ALUMNO
+where ASIGNATURA.ID_Asignatura = CURSA.ID_Asignatura
+AND CURSA.Matricula = ALUMNO.Matricula
+AND ALUMNO.Matricula = 1;
+
+UPDATE ALUMNO
+SET Nombre = '', Apellidos = '', Correo = ''
+WHERE Matricula = '';
 -- Tabla CURSA
 CREATE TABLE CURSA (
     Matricula INT FOREIGN KEY REFERENCES ALUMNO(Matricula),

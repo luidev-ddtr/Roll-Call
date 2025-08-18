@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Roll_Call.BNL
 {
-    internal class alumno
+    public class alumno
     {
         public int Matricula;
         public string Nombre;
@@ -27,14 +27,21 @@ namespace Roll_Call.BNL
         {
             string mensaje = "";
             bool isValid = true;
-            
-            (isValid, mensaje) = ValidarFecha(Fecha_Nac);
-            if (!isValid)
-                return (false ,mensaje);
 
-            (isValid, mensaje) = ValidarCorreo(Correo);
-            if (!isValid)
-                return (false, mensaje);
+            if (Fecha_Nac != null)
+            {
+                (isValid, mensaje) = ValidarFecha(Fecha_Nac);
+                if (!isValid)
+                    return (false, mensaje);
+            }
+
+            if (Correo != null)
+            {
+                (isValid, mensaje) = ValidarCorreo(Correo);
+                if (!isValid)
+                    return (false, mensaje);
+            }
+
 
             foreach (var item in GenerarLista())
             {

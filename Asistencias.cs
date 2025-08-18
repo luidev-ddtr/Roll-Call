@@ -17,11 +17,13 @@ namespace Roll_Call
         public Asistencias()
         {
             InitializeComponent();
+          this.BackgroundImage = Properties.Resources.gris_patron;
+           this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void Asistencias_Load(object sender, EventArgs e)
         {
-
+          
         }
 
         public void CargarDatos()

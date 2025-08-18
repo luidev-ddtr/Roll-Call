@@ -35,6 +35,8 @@ namespace Roll_Call
             StartPosition = FormStartPosition.Manual;
             Bounds = Screen.PrimaryScreen.Bounds; // Ocupa todo el área visible
             FormBorderStyle = FormBorderStyle.None; // Sin bordes ni barra de título
+            panelPrincipal.BackgroundImage = Properties.Resources.gris_patron;
+            panelPrincipal.BackgroundImageLayout=ImageLayout.Stretch;
         }
 
         private void panelCerrarSesion_Paint(object sender, PaintEventArgs e)

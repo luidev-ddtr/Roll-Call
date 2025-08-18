@@ -29,8 +29,6 @@ namespace Roll_Call.DAL
                  '{datosAlumno.Correo.Replace("'", "''")}', 
                  '{datosAlumno.Estatus.Replace("'", "''")}')";
 
-                MessageBox.Show($"Query que se enviará a la BD:\n{query}", "Datos a Insertar");
-
                 ObjetoConexion.EjecutarQuery(query);
                 MessageBox.Show("Alumno ingresado correctamente", "Éxito");
             }
@@ -93,6 +91,50 @@ namespace Roll_Call.DAL
             {
                 MessageBox.Show($"No se pudieron obtener los datos: {ex.Message}");
                 return 0; // Retorna 0 en caso de error
+            }
+
+        }//end function
+
+        public void ModificarAlumno(alumno datosAlumno)
+        {
+            conexion ObjetoConexion = new conexion();
+
+            try
+            {
+                // Usamos interpolación de strings ($"") para mayor claridad
+                string query = $@"
+                    UPDATE ALUMNO
+                    SET Nombre = '{datosAlumno.Nombre.Replace("'", "''")}', Apellidos = '{datosAlumno.Apellidos.Replace("'", "''")}', Correo = '{datosAlumno.Correo.Replace("'", "''")}'
+                    WHERE Matricula = {datosAlumno.Matricula};";
+
+                ObjetoConexion.EjecutarQuery(query);
+                MessageBox.Show("Alumno Modificado correctamente", "Éxito");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"No se pudieron ingresar los datos: {ex.Message}");
+            }
+
+        }
+
+        public void Desactivarusuario(int matricula)
+        {
+            conexion ObjetoConexion = new conexion();
+
+            try
+            {
+                // Usamos interpolación de strings ($"") para mayor claridad
+                string query = $@"
+                    UPDATE ALUMNO
+                    SET Estatus = 'INACTIVO'
+                    WHERE Matricula = {matricula};";
+
+                ObjetoConexion.EjecutarQuery(query);
+                MessageBox.Show("Alumno Desactivado correctamente", "Éxito");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"No se pudieron ingresar los datos: {ex.Message}");
             }
         }
     }

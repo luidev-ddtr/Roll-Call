@@ -41,9 +41,38 @@ namespace Roll_Call.DAL
                 MessageBox.Show($"No se pudieron obtener los datos: {ex.Message}");
                 return 0; // Retorna 0 en caso de error
             }
-            finally
+        }
+
+        public string GetasignaturaByMatricula(int matricula)
+        {
+            conexion ObjetoConexion = new conexion();
+            string materia = "";
+            try
             {
-                ObjetoConexion.cerrar();
+                // Opción 1: Buscar por coincidencia exacta de datos
+                
+                string query = $@"
+                    select STRING_AGG(ASIGNATURA.Nombre, ', ')
+                    from ASIGNATURA, CURSA, ALUMNO
+                    where ASIGNATURA.ID_Asignatura = CURSA.ID_Asignatura
+                    AND CURSA.Matricula = ALUMNO.Matricula
+                    AND ALUMNO.Matricula = '{matricula}'";
+
+                using (SqlCommand cmd = new SqlCommand(query, ObjetoConexion.establecerConexion()))
+                {
+                    object result = cmd.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        materia = Convert.ToString(result);
+                    }
+                }
+
+                return materia;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"No se pudieron obtener los datos: {ex.Message}");
+                return ""; // Retorna 0 en caso de error
             }
         }
     }
