@@ -28,17 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.dgvHistorial = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.btnModificarHistorial = new System.Windows.Forms.Button();
             this.btnEliminarHistorial = new System.Windows.Forms.Button();
-            this.dtpBuscarFecha = new System.Windows.Forms.DateTimePicker();
+            this.txtBuscador = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dgvHistorial = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dgvHistorial
+            // 
+            this.dgvHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHistorial.Location = new System.Drawing.Point(72, 159);
+            this.dgvHistorial.Name = "dgvHistorial";
+            this.dgvHistorial.Size = new System.Drawing.Size(1403, 688);
+            this.dgvHistorial.TabIndex = 0;
             // 
             // label1
             // 
@@ -84,51 +90,25 @@
             this.btnEliminarHistorial.Text = "Eliminar";
             this.btnEliminarHistorial.UseVisualStyleBackColor = false;
             // 
-            // dtpBuscarFecha
+            // txtBuscador
             // 
-            this.dtpBuscarFecha.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpBuscarFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpBuscarFecha.Location = new System.Drawing.Point(1000, 87);
-            this.dtpBuscarFecha.Name = "dtpBuscarFecha";
-            this.dtpBuscarFecha.Size = new System.Drawing.Size(475, 50);
-            this.dtpBuscarFecha.TabIndex = 9;
-            this.dtpBuscarFecha.ValueChanged += new System.EventHandler(this.dtpBuscarFecha_ValueChanged);
+            this.txtBuscador.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBuscador.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscador.Location = new System.Drawing.Point(1000, 79);
+            this.txtBuscador.Multiline = true;
+            this.txtBuscador.Name = "txtBuscador";
+            this.txtBuscador.Size = new System.Drawing.Size(475, 56);
+            this.txtBuscador.TabIndex = 4;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Roll_Call.Properties.Resources.BuscadorIcono;
-            this.pictureBox1.Location = new System.Drawing.Point(935, 87);
+            this.pictureBox1.Location = new System.Drawing.Point(918, 63);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(67, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.Size = new System.Drawing.Size(85, 72);
+            this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
-            // 
-            // dgvHistorial
-            // 
-            this.dgvHistorial.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHistorial.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvHistorial.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvHistorial.Location = new System.Drawing.Point(76, 158);
-            this.dgvHistorial.Name = "dgvHistorial";
-            this.dgvHistorial.Size = new System.Drawing.Size(1403, 688);
-            this.dgvHistorial.TabIndex = 10;
             // 
             // Historiall
             // 
@@ -136,29 +116,30 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Roll_Call.Properties.Resources.gris_patron;
             this.ClientSize = new System.Drawing.Size(1554, 1004);
-            this.Controls.Add(this.dgvHistorial);
-            this.Controls.Add(this.dtpBuscarFecha);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.txtBuscador);
             this.Controls.Add(this.btnEliminarHistorial);
             this.Controls.Add(this.btnModificarHistorial);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.dgvHistorial);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Historiall";
             this.Text = "Historial";
             this.Load += new System.EventHandler(this.Historial_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dgvHistorial;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnModificarHistorial;
         private System.Windows.Forms.Button btnEliminarHistorial;
-        private System.Windows.Forms.DateTimePicker dtpBuscarFecha;
+        private System.Windows.Forms.TextBox txtBuscador;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridView dgvHistorial;
     }
 }
