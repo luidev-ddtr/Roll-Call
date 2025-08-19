@@ -43,10 +43,8 @@ namespace Roll_Call
 
             // Configuración de la ventana principal
             StartPosition = FormStartPosition.Manual;
-            Bounds = Screen.PrimaryScreen.Bounds; // Ocupa toda la pantalla
-            FormBorderStyle = FormBorderStyle.None; // Elimina bordes y barra de título
-
-            // Establece la imagen de fondo del panel principal
+            //Bounds = Screen.PrimaryScreen.Bounds; // Ocupa todo el área visible
+            FormBorderStyle = FormBorderStyle.None; // Sin bordes ni barra de título
             panelPrincipal.BackgroundImage = Properties.Resources.gris_patron;
             panelPrincipal.BackgroundImageLayout = ImageLayout.Stretch;
         }

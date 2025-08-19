@@ -169,5 +169,10 @@ namespace Roll_Call
             cbxMateria.SelectedIndex = 0;
             dgvAsistencias.ClearSelection();
         }
+
+        private void txtPeriodo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
