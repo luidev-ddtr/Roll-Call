@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.btnGuardarModificaiones = new System.Windows.Forms.Button();
             this.btnSalirModificaciones = new System.Windows.Forms.Button();
@@ -52,10 +52,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Britannic Bold", 51F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(283, 14);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 51F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(424, 22);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(922, 75);
+            this.label1.Size = new System.Drawing.Size(1392, 115);
             this.label1.TabIndex = 1;
             this.label1.Text = "Modificar Lista de Asistencias";
             // 
@@ -66,9 +67,10 @@
             this.btnGuardarModificaiones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarModificaiones.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarModificaiones.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGuardarModificaiones.Location = new System.Drawing.Point(316, 811);
+            this.btnGuardarModificaiones.Location = new System.Drawing.Point(474, 1248);
+            this.btnGuardarModificaiones.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGuardarModificaiones.Name = "btnGuardarModificaiones";
-            this.btnGuardarModificaiones.Size = new System.Drawing.Size(380, 72);
+            this.btnGuardarModificaiones.Size = new System.Drawing.Size(570, 111);
             this.btnGuardarModificaiones.TabIndex = 21;
             this.btnGuardarModificaiones.Text = "Guardar";
             this.btnGuardarModificaiones.UseVisualStyleBackColor = false;
@@ -81,9 +83,10 @@
             this.btnSalirModificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalirModificaciones.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalirModificaciones.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSalirModificaciones.Location = new System.Drawing.Point(826, 811);
+            this.btnSalirModificaciones.Location = new System.Drawing.Point(1239, 1248);
+            this.btnSalirModificaciones.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSalirModificaciones.Name = "btnSalirModificaciones";
-            this.btnSalirModificaciones.Size = new System.Drawing.Size(380, 72);
+            this.btnSalirModificaciones.Size = new System.Drawing.Size(570, 111);
             this.btnSalirModificaciones.TabIndex = 22;
             this.btnSalirModificaciones.Text = "Salir";
             this.btnSalirModificaciones.UseVisualStyleBackColor = false;
@@ -93,9 +96,10 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Roll_Call.Properties.Resources.decoracion;
-            this.pictureBox1.Location = new System.Drawing.Point(20, 14);
+            this.pictureBox1.Location = new System.Drawing.Point(30, 22);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(158, 84);
+            this.pictureBox1.Size = new System.Drawing.Size(237, 129);
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
@@ -115,19 +119,22 @@
             this.panel5.Controls.Add(this.btnSalirModificaciones);
             this.panel5.Controls.Add(this.label1);
             this.panel5.Controls.Add(this.btnGuardarModificaiones);
-            this.panel5.Location = new System.Drawing.Point(50, 27);
+            this.panel5.Location = new System.Drawing.Point(75, 42);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1462, 942);
+            this.panel5.Size = new System.Drawing.Size(2193, 1449);
             this.panel5.TabIndex = 29;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             this.panel5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel5_MouseDown);
             // 
             // dtpBuscarFecha
             // 
             this.dtpBuscarFecha.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpBuscarFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpBuscarFecha.Location = new System.Drawing.Point(141, 127);
+            this.dtpBuscarFecha.Location = new System.Drawing.Point(212, 195);
+            this.dtpBuscarFecha.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpBuscarFecha.Name = "dtpBuscarFecha";
-            this.dtpBuscarFecha.Size = new System.Drawing.Size(603, 35);
+            this.dtpBuscarFecha.Size = new System.Drawing.Size(902, 49);
             this.dtpBuscarFecha.TabIndex = 37;
             this.dtpBuscarFecha.ValueChanged += new System.EventHandler(this.dtpBuscarFecha_ValueChanged);
             // 
@@ -137,43 +144,47 @@
             this.cbxMateria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxMateria.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxMateria.FormattingEnabled = true;
-            this.cbxMateria.Location = new System.Drawing.Point(952, 129);
+            this.cbxMateria.Location = new System.Drawing.Point(1428, 198);
+            this.cbxMateria.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbxMateria.Name = "cbxMateria";
-            this.cbxMateria.Size = new System.Drawing.Size(491, 33);
+            this.cbxMateria.Size = new System.Drawing.Size(734, 45);
             this.cbxMateria.TabIndex = 36;
             this.cbxMateria.SelectedIndexChanged += new System.EventHandler(this.cbxMateria_SelectedIndexChanged);
             // 
             // dvgModificarAsistencias
             // 
             this.dvgModificarAsistencias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvgModificarAsistencias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvgModificarAsistencias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dvgModificarAsistencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dvgModificarAsistencias.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dvgModificarAsistencias.Location = new System.Drawing.Point(29, 197);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dvgModificarAsistencias.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dvgModificarAsistencias.Location = new System.Drawing.Point(44, 303);
+            this.dvgModificarAsistencias.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dvgModificarAsistencias.Name = "dvgModificarAsistencias";
-            this.dvgModificarAsistencias.Size = new System.Drawing.Size(1414, 591);
+            this.dvgModificarAsistencias.RowHeadersWidth = 62;
+            this.dvgModificarAsistencias.Size = new System.Drawing.Size(2121, 909);
             this.dvgModificarAsistencias.TabIndex = 35;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.panel4.Location = new System.Drawing.Point(832, 168);
+            this.panel4.Location = new System.Drawing.Point(1248, 258);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(611, 10);
+            this.panel4.Size = new System.Drawing.Size(916, 15);
             this.panel4.TabIndex = 34;
             // 
             // label2
@@ -181,9 +192,10 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(19, 129);
+            this.label2.Location = new System.Drawing.Point(28, 198);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 35);
+            this.label2.Size = new System.Drawing.Size(146, 52);
             this.label2.TabIndex = 30;
             this.label2.Text = "Fecha:";
             // 
@@ -192,18 +204,20 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(826, 126);
+            this.label5.Location = new System.Drawing.Point(1239, 194);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 35);
+            this.label5.Size = new System.Drawing.Size(183, 52);
             this.label5.TabIndex = 33;
             this.label5.Text = "Materia:";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.panel1.Location = new System.Drawing.Point(25, 168);
+            this.panel1.Location = new System.Drawing.Point(38, 258);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(719, 10);
+            this.panel1.Size = new System.Drawing.Size(1078, 15);
             this.panel1.TabIndex = 32;
             // 
             // label3
@@ -211,19 +225,21 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(19, 242);
+            this.label3.Location = new System.Drawing.Point(28, 372);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 35);
+            this.label3.Size = new System.Drawing.Size(0, 52);
             this.label3.TabIndex = 31;
             // 
             // ModificarHistoriall
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1554, 1003);
+            this.ClientSize = new System.Drawing.Size(2331, 1543);
             this.Controls.Add(this.panel5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ModificarHistoriall";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "btnModificarHistorial";

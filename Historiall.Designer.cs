@@ -44,10 +44,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Bernard MT Condensed", 51F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(58, 61);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 51F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(87, 94);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(657, 82);
+            this.label1.Size = new System.Drawing.Size(1128, 115);
             this.label1.TabIndex = 1;
             this.label1.Text = "Historial de Asistencias";
             // 
@@ -60,9 +61,10 @@
             this.btnModificarHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificarHistorial.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificarHistorial.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnModificarHistorial.Location = new System.Drawing.Point(224, 896);
+            this.btnModificarHistorial.Location = new System.Drawing.Point(336, 1378);
+            this.btnModificarHistorial.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnModificarHistorial.Name = "btnModificarHistorial";
-            this.btnModificarHistorial.Size = new System.Drawing.Size(380, 72);
+            this.btnModificarHistorial.Size = new System.Drawing.Size(570, 111);
             this.btnModificarHistorial.TabIndex = 2;
             this.btnModificarHistorial.Text = "Modificar";
             this.btnModificarHistorial.UseVisualStyleBackColor = false;
@@ -77,20 +79,23 @@
             this.btnGenerarReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerarReporte.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerarReporte.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGenerarReporte.Location = new System.Drawing.Point(960, 896);
+            this.btnGenerarReporte.Location = new System.Drawing.Point(1440, 1378);
+            this.btnGenerarReporte.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGenerarReporte.Name = "btnGenerarReporte";
-            this.btnGenerarReporte.Size = new System.Drawing.Size(380, 72);
+            this.btnGenerarReporte.Size = new System.Drawing.Size(570, 111);
             this.btnGenerarReporte.TabIndex = 3;
             this.btnGenerarReporte.Text = "Generar reporte";
             this.btnGenerarReporte.UseVisualStyleBackColor = false;
+            this.btnGenerarReporte.Click += new System.EventHandler(this.btnGenerarReporte_Click);
             // 
             // dtpBuscarFecha
             // 
             this.dtpBuscarFecha.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpBuscarFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpBuscarFecha.Location = new System.Drawing.Point(1000, 78);
+            this.dtpBuscarFecha.Location = new System.Drawing.Point(1500, 120);
+            this.dtpBuscarFecha.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpBuscarFecha.Name = "dtpBuscarFecha";
-            this.dtpBuscarFecha.Size = new System.Drawing.Size(475, 50);
+            this.dtpBuscarFecha.Size = new System.Drawing.Size(710, 71);
             this.dtpBuscarFecha.TabIndex = 9;
             this.dtpBuscarFecha.ValueChanged += new System.EventHandler(this.dtpBuscarFecha_ValueChanged);
             // 
@@ -98,9 +103,10 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Roll_Call.Properties.Resources.BuscadorIcono;
-            this.pictureBox1.Location = new System.Drawing.Point(935, 78);
+            this.pictureBox1.Location = new System.Drawing.Point(1402, 120);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(63, 56);
+            this.pictureBox1.Size = new System.Drawing.Size(94, 86);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
@@ -125,18 +131,20 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvHistorial.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvHistorial.Location = new System.Drawing.Point(76, 158);
+            this.dgvHistorial.Location = new System.Drawing.Point(114, 243);
+            this.dgvHistorial.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvHistorial.Name = "dgvHistorial";
             this.dgvHistorial.ReadOnly = true;
-            this.dgvHistorial.Size = new System.Drawing.Size(1403, 688);
+            this.dgvHistorial.RowHeadersWidth = 62;
+            this.dgvHistorial.Size = new System.Drawing.Size(2104, 1058);
             this.dgvHistorial.TabIndex = 10;
             // 
             // Historiall
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Roll_Call.Properties.Resources.gris_patron;
-            this.ClientSize = new System.Drawing.Size(1554, 1004);
+            this.ClientSize = new System.Drawing.Size(2331, 1545);
             this.Controls.Add(this.dgvHistorial);
             this.Controls.Add(this.dtpBuscarFecha);
             this.Controls.Add(this.pictureBox1);
@@ -144,6 +152,7 @@
             this.Controls.Add(this.btnModificarHistorial);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Historiall";
             this.Text = "Historial";
             this.Load += new System.EventHandler(this.Historial_Load);

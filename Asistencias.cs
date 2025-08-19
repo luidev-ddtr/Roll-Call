@@ -12,23 +12,35 @@ using Roll_Call.DAL;
 
 namespace Roll_Call
 {
+    /// <summary>
+    /// Formulario para el registro de asistencias de alumnos
+    /// </summary>
     public partial class Asistencias : Form
     {
+        /// <summary>
+        /// Constructor que inicializa el formulario y carga los datos iniciales
+        /// </summary>
         public Asistencias()
         {
             InitializeComponent();
-            CargarDatos(); // Carga los datos de los alumnos al iniciar el formulario
-            CargarMaterias(); // Carga las materias al iniciar el formulario
+            CargarDatos(); // Carga los datos de los alumnos activos
+            CargarMaterias(); // Carga la lista de materias disponibles
             this.BackgroundImage = Properties.Resources.gris_patron;
             this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
+        /// <summary>
+        /// Evento Load del formulario que configura la fecha inicial
+        /// </summary>
         private void Asistencias_Load(object sender, EventArgs e)
         {
-            dtpFecha.Value = DateTime.Now; // Actualiza la fecha al valor actual
-            dtpFecha.MinDate = DateTime.Now; // Establece la fecha mínima al día actual
+            dtpFecha.Value = DateTime.Now; // Establece la fecha actual
+            dtpFecha.MinDate = DateTime.Now; // Impide seleccionar fechas pasadas
         }
 
+        /// <summary>
+        /// Carga los datos de alumnos activos en el DataGridView
+        /// </summary>
         public void CargarDatos()
         {
             try
@@ -49,6 +61,9 @@ namespace Roll_Call
             }
         }
 
+        /// <summary>
+        /// Carga la lista de materias en el ComboBox
+        /// </summary>
         private void CargarMaterias()
         {
             try
@@ -71,6 +86,9 @@ namespace Roll_Call
             }
         }
 
+        /// <summary>
+        /// Registra las asistencias de los alumnos seleccionados
+        /// </summary>
         private void btnRegistrarAsistencia_Click(object sender, EventArgs e)
         {
             try
@@ -86,7 +104,7 @@ namespace Roll_Call
                         int idAsignatura = Convert.ToInt32(cbxMateria.SelectedValue);
                         DateTime fecha = dtpFecha.Value;
 
-                        // Asignar estado basado en selección
+                        // Asignar estado basado en selección (Presente/Ausente)
                         string estado = fila.Selected ? "Presente" : "Ausente";
 
                         // Validar que la matrícula exista en ALUMNO
@@ -103,10 +121,10 @@ namespace Roll_Call
                             }
                         }
 
-                        // Verificar si ya existe asistencia para ese alumno en esa fecha y asignatura
+                        // Verificar duplicados de asistencia
                         string verificarDuplicado = @"SELECT COUNT(*) FROM Asistencia 
-                                                      WHERE Matricula = @Matricula AND ID_Asignatura = @ID_Asignatura
-                                                      AND CAST(Fecha AS DATE) = CAST(@Fecha AS DATE)";
+                                                  WHERE Matricula = @Matricula AND ID_Asignatura = @ID_Asignatura
+                                                  AND CAST(Fecha AS DATE) = CAST(@Fecha AS DATE)";
                         using (SqlCommand verificarCmd = new SqlCommand(verificarDuplicado, conexion))
                         {
                             verificarCmd.Parameters.AddWithValue("@Matricula", matricula);
@@ -121,7 +139,7 @@ namespace Roll_Call
                             }
                         }
 
-                        // Insertar asistencia
+                        // Insertar registro de asistencia
                         string consulta = "INSERT INTO Asistencia (Matricula, ID_Asignatura, Fecha, Estado) VALUES (@Matricula, @ID_Asignatura, @Fecha, @Estado)";
                         using (SqlCommand comando = new SqlCommand(consulta, conexion))
                         {
@@ -134,9 +152,7 @@ namespace Roll_Call
                     }
 
                     MessageBox.Show("Asistencia registrada correctamente.");
-
-                    // Opcional: Deseleccionar todas las filas después de registrar
-                    dgvAsistencias.ClearSelection();
+                    dgvAsistencias.ClearSelection(); // Limpiar selecciones
                 }
             }
             catch (Exception ex)
@@ -145,6 +161,9 @@ namespace Roll_Call
             }
         }
 
+        /// <summary>
+        /// Limpia las selecciones del formulario
+        /// </summary>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             cbxMateria.SelectedIndex = 0;

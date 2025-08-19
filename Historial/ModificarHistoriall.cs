@@ -13,26 +13,36 @@ using Roll_Call.DAL;
 
 namespace Roll_Call.Historial
 {
+    /// <summary>
+    /// Formulario para modificar el historial de asistencias de alumnos
+    /// </summary>
     public partial class ModificarHistoriall : Form
     {
+        /// <summary>
+        /// Constructor que inicializa el formulario y carga los datos iniciales
+        /// </summary>
         public ModificarHistoriall()
         {
             InitializeComponent();
-            ConfigurarDataGridView(); // CONFIGURACION DEL DATAGRIVD
-            CargarDatos(); // Carga los datos al iniciar el formulario
-            CargarMaterias(); // Carga las materias al iniciar el formulario
+            ConfigurarDataGridView(); // Configura las columnas del DataGridView
+            CargarDatos(); // Carga los datos iniciales de asistencias
+            CargarMaterias(); // Carga la lista de materias disponibles
         }
 
+        // Importaciones para permitir arrastrar el formulario
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
-        private void ModificarHistoriall_Load(object sender, EventArgs e)
-        {
-            
-        }
+        /// <summary>
+        /// Evento Load del formulario
+        /// </summary>
+        private void ModificarHistoriall_Load(object sender, EventArgs e) { }
 
+        /// <summary>
+        /// Guarda las modificaciones realizadas en el historial de asistencias
+        /// </summary>
         private void btnGuardarModificaiones_Click(object sender, EventArgs e)
         {
             if (dvgModificarAsistencias.DataSource == null || dvgModificarAsistencias.Rows.Count == 0)
@@ -40,42 +50,42 @@ namespace Roll_Call.Historial
                 MessageBox.Show("No hay datos para modificar.");
                 return;
             }
-            foreach (DataGridViewRow row in dvgModificarAsistencias.Rows)
-            {
-                if (row.IsNewRow) continue;
-            }
-            ModificarHistorial(); // Llama al método para modificar el historial de asistencias
+            ModificarHistorial(); // Actualiza los registros en la base de datos
         }
 
+        // Eventos para permitir arrastrar el formulario
         private void ModificarHistoriall_MouseDown(object sender, MouseEventArgs e)
         {
-            ReleaseCapture();//Mueve el formulario al hacer clic y arrastrar
+            ReleaseCapture();
             SendMessage(Handle, 0x112, 0xf012, 0);
         }
-
         private void panel5_MouseDown(object sender, MouseEventArgs e)
         {
-            ReleaseCapture();//Mueve el formulario al hacer clic y arrastrar
+            ReleaseCapture();
             SendMessage(Handle, 0x112, 0xf012, 0);
         }
-
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            ReleaseCapture();//Mueve el formulario al hacer clic y arrastrar
+            ReleaseCapture();
             SendMessage(Handle, 0x112, 0xf012, 0);
         }
-
         private void dvgModificarAsistencias_MouseDown(object sender, MouseEventArgs e)
         {
-            ReleaseCapture();//Mueve el formulario al hacer clic y arrastrar
+            ReleaseCapture();
             SendMessage(Handle, 0x112, 0xf012, 0);
         }
 
+        /// <summary>
+        /// Cierra el formulario actual
+        /// </summary>
         private void btnSalirModificaciones_Click(object sender, EventArgs e)
         {
-            this.Close(); // Cierra el formulario actual
+            this.Close();
         }
 
+        /// <summary>
+        /// Configura la columna de estado en el DataGridView como ComboBox
+        /// </summary>
         private void ConfigurarDataGridView()
         {
             if (!dvgModificarAsistencias.Columns.Contains("Estado"))
@@ -91,6 +101,9 @@ namespace Roll_Call.Historial
             }
         }
 
+        /// <summary>
+        /// Carga todos los registros de asistencias en el DataGridView
+        /// </summary>
         private void CargarDatos()
         {
             try
@@ -111,6 +124,9 @@ namespace Roll_Call.Historial
             }
         }
 
+        /// <summary>
+        /// Carga la lista de materias en el ComboBox
+        /// </summary>
         private void CargarMaterias()
         {
             try
@@ -133,6 +149,10 @@ namespace Roll_Call.Historial
             }
         }
 
+        /// <summary>
+        /// Busca asistencias por fecha específica
+        /// </summary>
+        /// <param name="fecha">Fecha a buscar</param>
         private void BuscarAsistenciaFecha(DateTime fecha)
         {
             try
@@ -155,6 +175,10 @@ namespace Roll_Call.Historial
             }
         }
 
+        /// <summary>
+        /// Busca asistencias por materia específica
+        /// </summary>
+        /// <param name="buscar">Nombre de la materia a buscar</param>
         private void BuscarAsistenciaMateria(String buscar)
         {
             try
@@ -177,7 +201,11 @@ namespace Roll_Call.Historial
             }
         }
 
-        //Si en la busqueda se busca por fecha y materia
+        /// <summary>
+        /// Busca asistencias por fecha y materia específicas
+        /// </summary>
+        /// <param name="fecha">Fecha a buscar</param>
+        /// <param name="buscar">Nombre de la materia a buscar</param>
         private void BuscarAsistenciaFechaMateria(DateTime fecha, String buscar)
         {
             try
@@ -205,22 +233,21 @@ namespace Roll_Call.Historial
             }
         }
 
-        // Método para decidir qué búsqueda ejecutar
+        /// <summary>
+        /// Decide qué tipo de búsqueda ejecutar según los filtros seleccionados
+        /// </summary>
         private void BuscarAsistencia()
         {
             if (!string.IsNullOrEmpty(cbxMateria.Text) && dtpBuscarFecha.Value != null)
             {
-                // Buscar por fecha y materia
                 BuscarAsistenciaFechaMateria(dtpBuscarFecha.Value.Date, cbxMateria.Text);
             }
             else if (!string.IsNullOrEmpty(cbxMateria.Text))
             {
-                // Buscar solo por materia
                 BuscarAsistenciaMateria(cbxMateria.Text);
             }
             else if (dtpBuscarFecha.Value != null)
             {
-                // Buscar solo por fecha
                 BuscarAsistenciaFecha(dtpBuscarFecha.Value.Date);
             }
             else
@@ -230,6 +257,9 @@ namespace Roll_Call.Historial
             }
         }
 
+        /// <summary>
+        /// Actualiza el estado de las asistencias en la base de datos
+        /// </summary>
         private void ModificarHistorial()
         {
             try
@@ -239,7 +269,7 @@ namespace Roll_Call.Historial
                     conexion.Open();
                     foreach (DataGridViewRow row in dvgModificarAsistencias.Rows)
                     {
-                        if (row.IsNewRow) continue; // Ignorar la fila nueva
+                        if (row.IsNewRow) continue;
                         string matricula = row.Cells["Matricula"].Value.ToString();
                         string estado = row.Cells["Estado"].Value.ToString();
                         DateTime fecha = Convert.ToDateTime(row.Cells["Fecha"].Value);
@@ -259,17 +289,28 @@ namespace Roll_Call.Historial
             }
         }
 
+        /// <summary>
+        /// Evento que se dispara al cambiar la materia seleccionada
+        /// </summary>
         private void cbxMateria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbxMateria.SelectedItem != null)
+            if (cbxMateria.SelectedItem != null)
             {
-                BuscarAsistencia(); // Llama al método para buscar asistencia al cambiar la materia
+                BuscarAsistencia();
             }
         }
 
+        /// <summary>
+        /// Evento que se dispara al cambiar la fecha seleccionada
+        /// </summary>
         private void dtpBuscarFecha_ValueChanged(object sender, EventArgs e)
         {
-            BuscarAsistencia(); // Llama al método para buscar asistencia al cambiar la fecha
+            BuscarAsistencia();
         }
+
+        /// <summary>
+        /// Evento Paint del panel
+        /// </summary>
+        private void panel5_Paint(object sender, PaintEventArgs e) { }
     }
 }

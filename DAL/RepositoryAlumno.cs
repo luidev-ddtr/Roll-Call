@@ -10,8 +10,18 @@ using System.Windows.Forms;
 
 namespace Roll_Call.DAL
 {
+    /// <summary>
+    /// Clase de acceso a datos para la gestión de alumnos en la base de datos
+    /// </summary>
     internal class RepositoryAlumno
     {
+        /// <summary>
+        /// Inserta un nuevo alumno en la base de datos
+        /// </summary>
+        /// <param name="datosAlumno">Objeto alumno con los datos a insertar</param>
+        /// <remarks>
+        /// Maneja la inserción de datos escapando comillas simples para prevenir SQL injection
+        /// </remarks>
         public void ingresarAlumno(alumno datosAlumno)
         {
             conexion ObjetoConexion = new conexion();
@@ -38,6 +48,10 @@ namespace Roll_Call.DAL
             }
         }
 
+        /// <summary>
+        /// Carga y muestra todos los alumnos en un DataGridView
+        /// </summary>
+        /// <param name="tablaEmpleados">Control DataGridView donde se mostrarán los datos</param>
         public void mostrarEmpleados(DataGridView tablaEmpleados)
         {
             conexion ObjetoConexion = new conexion();
@@ -58,8 +72,15 @@ namespace Roll_Call.DAL
                 MessageBox.Show("Error al cargar empleados: " + ex.Message, "Error",
                               MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        } //end funtion
+        }
 
+        /// <summary>
+        /// Obtiene la matrícula de un alumno basado en sus datos personales
+        /// </summary>
+        /// <param name="DatosAlumno">Objeto alumno con los datos a buscar</param>
+        /// <returns>
+        /// La matrícula del alumno si se encuentra, 0 si no se encuentra o hay error
+        /// </returns>
         public int GetByDataAlumno(alumno DatosAlumno)
         {
             conexion ObjetoConexion = new conexion();
@@ -92,9 +113,12 @@ namespace Roll_Call.DAL
                 MessageBox.Show($"No se pudieron obtener los datos: {ex.Message}");
                 return 0; // Retorna 0 en caso de error
             }
+        }
 
-        }//end function
-
+        /// <summary>
+        /// Actualiza los datos de un alumno existente en la base de datos
+        /// </summary>
+        /// <param name="datosAlumno">Objeto alumno con los datos actualizados</param>
         public void ModificarAlumno(alumno datosAlumno)
         {
             conexion ObjetoConexion = new conexion();
@@ -114,9 +138,12 @@ namespace Roll_Call.DAL
             {
                 MessageBox.Show($"No se pudieron ingresar los datos: {ex.Message}");
             }
-
         }
 
+        /// <summary>
+        /// Desactiva un alumno cambiando su estatus a INACTIVO
+        /// </summary>
+        /// <param name="matricula">Matrícula del alumno a desactivar</param>
         public void Desactivarusuario(int matricula)
         {
             conexion ObjetoConexion = new conexion();

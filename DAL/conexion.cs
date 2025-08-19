@@ -9,26 +9,40 @@ using System.Windows.Forms;
 
 namespace Roll_Call.DAL
 {
+    /// <summary>
+    /// Clase para manejar la conexión y operaciones con la base de datos
+    /// </summary>
     internal class conexion
     {
-        public static string cadenaBD = "Data Source=localhost\\SQLEXPRESS01;Initial Catalog=CONTROL_ESCOLAR;Integrated Security=True;TrustServerCertificate=True;";
+        /// <summary>
+        /// Cadena de conexión estática a la base de datos
+        /// </summary>
+        public static string cadenaBD = "Data Source=ANGEL\\SQLEXPRESS;Initial Catalog=CONTROL_ESCOLAR;Integrated Security=True;TrustServerCertificate=True;";
 
+        /// <summary>
+        /// Objeto SqlConnection para manejar la conexión a la base de datos
+        /// </summary>
         public SqlConnection cursor = new SqlConnection();
 
+        /// <summary>
+        /// Cadena de conexión privada para la instancia actual
+        /// </summary>
         private string cadena =
-            "Data Source=localhost\\SQLEXPRESS01;" + //Aqui Cambiar el usuario
+            "Data Source=ANGEL\\SQLEXPRESS;" + //Aqui Cambiar el usuario
             "Initial Catalog=CONTROL_ESCOLAR;" +
             "Integrated Security=True;" +
             "TrustServerCertificate=True;";
 
+        /// <summary>
+        /// Establece una conexión con la base de datos
+        /// </summary>
+        /// <returns>Objeto SqlConnection abierto</returns>
         public SqlConnection establecerConexion()
         {
             try
             {
                 cursor.ConnectionString = cadena;
                 cursor.Open();
-                //MessageBox.Show("Conexión abierta exitosamente.");
-
             }
             catch (Exception ex)
             {
@@ -37,21 +51,26 @@ namespace Roll_Call.DAL
             return cursor;
         }
 
+        /// <summary>
+        /// Cierra la conexión con la base de datos
+        /// </summary>
         public void cerrar()
         {
             try
             {
                 cursor.Close();
-                //MessageBox.Show("Conexión cerrada exitosamente.");
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("No se pudo cerrar la conexion" + ex.Message);
+                // La excepción se silencia intencionalmente
             }
         }
 
-
-        // Método genérico para obtener datos (DataTable)
+        /// <summary>
+        /// Obtiene datos de la base de datos y los devuelve en un DataTable
+        /// </summary>
+        /// <param name="consultaSQL">Consulta SELECT a ejecutar</param>
+        /// <returns>DataTable con los resultados de la consulta</returns>
         public DataTable ObtenerDatos(string consultaSQL)
         {
             DataTable dt = new DataTable();
@@ -73,7 +92,11 @@ namespace Roll_Call.DAL
             return dt;
         }
 
-        // Método genérico para ejecutar consultas (INSERT/UPDATE/DELETE)
+        /// <summary>
+        /// Ejecuta una consulta que no devuelve resultados (INSERT/UPDATE/DELETE)
+        /// </summary>
+        /// <param name="consultaSQL">Consulta SQL a ejecutar</param>
+        /// <returns>Número de filas afectadas</returns>
         public int EjecutarConsulta(string consultaSQL)
         {
             int filasAfectadas = 0;
@@ -93,31 +116,31 @@ namespace Roll_Call.DAL
         }
 
         /// <summary>
-        /// Ejecuta una consulta SQL y muestra información de depuración
+        /// Ejecuta una consulta SQL con opción de mostrar mensajes de depuración
         /// </summary>
         /// <param name="query">Consulta SQL a ejecutar</param>
         /// <param name="mostrarMensajes">True para mostrar mensajes de depuración</param>
-        /// <returns>Número de filas afectadas</returns>
+        /// <returns>
+        /// Número de filas afectadas (≥0) si tiene éxito, 
+        /// -1 si ocurre un error
+        /// </returns>
         public int EjecutarQuery(string query, bool mostrarMensajes = false)
         {
             int filasAfectadas = 0;
 
             try
             {
-                // Mostrar el query si está habilitado
                 if (mostrarMensajes)
                 {
                     MessageBox.Show($"Query a ejecutar:\n{query}", "Depuración - Query SQL");
                 }
 
-                // Establecer conexión
                 this.establecerConexion();
 
                 using (SqlCommand cmd = new SqlCommand(query, cursor))
                 {
                     filasAfectadas = cmd.ExecuteNonQuery();
 
-                    // Mostrar resultado si está habilitado
                     if (mostrarMensajes)
                     {
                         MessageBox.Show($"Filas afectadas: {filasAfectadas}", "Resultado de la operación");
@@ -129,7 +152,7 @@ namespace Roll_Call.DAL
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al ejecutar el query:\n{ex.Message}", "Error en la base de datos");
-                return -1; // Retorna -1 para indicar error
+                return -1;
             }
             finally
             {
@@ -138,15 +161,21 @@ namespace Roll_Call.DAL
         }
 
         /// <summary>
-        /// Versión con parámetros para mayor seguridad
+        /// Ejecuta una consulta SQL con parámetros para mayor seguridad
         /// </summary>
+        /// <param name="query">Consulta SQL con parámetros (@param1, @param2, etc.)</param>
+        /// <param name="parametros">Diccionario de parámetros (nombre, valor)</param>
+        /// <param name="mostrarMensajes">True para mostrar mensajes de depuración</param>
+        /// <returns>
+        /// Número de filas afectadas (≥0) si tiene éxito, 
+        /// -1 si ocurre un error
+        /// </returns>
         public int EjecutarQueryConParametros(string query, Dictionary<string, object> parametros, bool mostrarMensajes = false)
         {
             int filasAfectadas = 0;
 
             try
             {
-                // Mostrar información de depuración
                 if (mostrarMensajes)
                 {
                     string debugInfo = $"Query a ejecutar:\n{query}\n\nParámetros:";
@@ -161,7 +190,6 @@ namespace Roll_Call.DAL
 
                 using (SqlCommand cmd = new SqlCommand(query, cursor))
                 {
-                    // Agregar parámetros
                     foreach (var param in parametros)
                     {
                         cmd.Parameters.AddWithValue(param.Key, param.Value ?? DBNull.Value);
@@ -187,6 +215,5 @@ namespace Roll_Call.DAL
                 this.cerrar();
             }
         }
-
     }
 }

@@ -14,44 +14,40 @@ namespace Roll_Call
 {
     public partial class Login : Form
     {
+        /// <summary>
+        /// Constructor de la clase Login. Inicializa los componentes y establece btnInicio como botón predeterminado.
+        /// </summary>
         public Login()
         {
             InitializeComponent();
-            AcceptButton = btnInicio; // Establece el botón de inicio como el botón predeterminado
-
+            AcceptButton = btnInicio;
         }
 
+        /// <summary>
+        /// Evento Load del formulario. Configura el modo de escalado y la apariencia inicial del formulario.
+        /// </summary>
         private void Login_Load(object sender, EventArgs e)
         {
-
             AutoScaleMode = AutoScaleMode.None;
-
-            // Ajustar el formulario a la pantalla principal
             StartPosition = FormStartPosition.Manual;
-            //Bounds = Screen.PrimaryScreen.Bounds; // Ocupa todo el área visible
-            FormBorderStyle = FormBorderStyle.None; // Sin bordes ni barra de título
-
+            FormBorderStyle = FormBorderStyle.None;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
+        // Métodos simplificados con expresión lambda
+        private void pictureBox1_Click(object sender, EventArgs e)  {}
+        private void txtUsuario_TextChanged(object sender, EventArgs e) {}
 
-        }
-
-        private void txtUsuario_TextChanged(object sender, EventArgs e)
-        {
-
-
-
-        }
-
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        /// <summary>
+        /// Evento Click del botón Cerrar. Termina la aplicación.
+        /// </summary>
+        private void btnCerrar_Click(object sender, EventArgs e) => Application.Exit();
 
         private Panel panel1;
         private Panel panel2;
+
+        /// <summary>
+        /// Evento Click del botón Inicio. Valida las credenciales de usuario.
+        /// </summary>
         private void btnInicio_Click(object sender, System.EventArgs e)
         {
             string usuario = txtUsuario.Text;
@@ -76,7 +72,7 @@ namespace Roll_Call
             {
                 Principal ventana = new Principal();
                 ventana.Show();
-                this.Hide(); // oculta la actual
+                this.Hide();
             }
             else
             {
@@ -85,4 +81,3 @@ namespace Roll_Call
         }
     }
 }
-

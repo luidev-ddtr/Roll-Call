@@ -11,62 +11,84 @@ using System.Runtime.InteropServices;
 
 namespace Roll_Call.Alumnos
 {
+    /// <summary>
+    /// Formulario para agregar nuevos alumnos al sistema
+    /// </summary>
     public partial class btnAñadirAlumno : Form
     {
-
+        /// <summary>
+        /// Diccionario que mapea nombres de materias con sus respectivos IDs
+        /// </summary>
         private Dictionary<string, int> materiasDictionary = new Dictionary<string, int>()
-            {
-                { "MATEMÁTICAS", 1 },
-                { "CIENCIAS NATURALES", 2 },
-                { "HISTORIA", 3 },
-                { "GEOGRAFÍA", 4 },
-                { "CÍVICA Y ÉTICA", 5 }
-            };
+        {
+            { "MATEMÁTICAS", 1 },
+            { "CIENCIAS NATURALES", 2 },
+            { "HISTORIA", 3 },
+            { "GEOGRAFÍA", 4 },
+            { "CÍVICA Y ÉTICA", 5 }
+        };
+
+        /// <summary>
+        /// Constructor del formulario. Inicializa los componentes y carga las materias en el CheckListBox.
+        /// </summary>S
         public btnAñadirAlumno()
         {
             InitializeComponent();
             CargarMateriasEnCheckListBox();
         }
 
+        // Importaciones para funcionalidad de arrastrar el formulario
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
+
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-
-
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-        private void btnAñadirAlumno_Load(object sender, EventArgs e)
-        {
 
-        }
+        /// <summary>
+        /// Evento Load del formulario
+        /// </summary>
+        private void btnAñadirAlumno_Load(object sender, EventArgs e) { }
 
+        /// <summary>
+        /// Maneja el evento MouseDown para permitir arrastrar el formulario
+        /// </summary>
         private void btnAñadirAlumno_MouseDown(object sender, MouseEventArgs e)
         {
-            ReleaseCapture();//Mueve el formulario al hacer clic y arrastrar
+            ReleaseCapture();
             SendMessage(Handle, 0x112, 0xf012, 0);
         }
 
+        /// <summary>
+        /// Cierra el formulario al hacer clic en el botón Salir
+        /// </summary>
         private void btnSalirAlumno_Click(object sender, EventArgs e)
         {
-            this.Close(); // Cierra el formulario actual
+            this.Close();
         }
 
+        /// <summary>
+        /// Maneja el evento MouseDown en la PictureBox para permitir arrastrar el formulario
+        /// </summary>
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            ReleaseCapture();//Mueve el formulario al hacer clic y arrastrar
+            ReleaseCapture();
             SendMessage(Handle, 0x112, 0xf012, 0);
         }
 
+        /// <summary>
+        /// Maneja el evento MouseDown en el panel para permitir arrastrar el formulario
+        /// </summary>
         private void panelbtnAlumno_MouseDown(object sender, MouseEventArgs e)
         {
-            ReleaseCapture();//Mueve el formulario al hacer clic y arrastrar
+            ReleaseCapture();
             SendMessage(Handle, 0x112, 0xf012, 0);
         }
 
-
-
+        /// <summary>
+        /// Maneja el evento Click del botón Guardar. Valida y guarda los datos del nuevo alumno.
+        /// </summary>
         private void btnGuardarAlumno_Click(object sender, EventArgs e)
         {
-            //TODA ESTA PARTE ES SOLO PARA SECCION ALUMNO
             DAL.RepositoryAlumno handlerAlumno = new DAL.RepositoryAlumno();
             BNL.alumno alumno = new BNL.alumno();
             bool isValid = false;
@@ -75,10 +97,10 @@ namespace Roll_Call.Alumnos
             string fechaFormateada = "";
             DateTime fechaConvertida;
 
+            // Validación y formateo de fecha
             if (DateTime.TryParse(fecha, out fechaConvertida))
             {
                 fechaFormateada = fechaConvertida.ToString("yyyy-MM-dd");
-                Console.WriteLine(fechaFormateada); // Salida: "2025-08-17"
             }
             else
             {
@@ -86,15 +108,16 @@ namespace Roll_Call.Alumnos
                 return;
             }
 
-            alumno.Nombre = txtNombre.Text; //string
-            alumno.Apellidos = txtApellidos.Text; // string
+            // Asignación de valores al objeto alumno
+            alumno.Nombre = txtNombre.Text;
+            alumno.Apellidos = txtApellidos.Text;
             alumno.Fecha_Nac = fechaFormateada;
-            alumno.Correo = txtCorreo.Text; //String
-            alumno.Estatus = "ACTIVO"; //tring
+            alumno.Correo = txtCorreo.Text;
+            alumno.Estatus = "ACTIVO";
 
             try
             {
-                
+                // Validación de datos del alumno
                 (isValid, mensaje) = alumno.validarDatos();
 
                 if (!isValid)
@@ -103,27 +126,27 @@ namespace Roll_Call.Alumnos
                     return;
                 }
 
+                // Guardar alumno en la base de datos
                 handlerAlumno.ingresarAlumno(alumno);
 
-                //Empieza aqui la seccion de cursa
+                // Procesar materias seleccionadas
                 List<int> misMaterias = ObtenerMateriasSeleccionadas();
-
                 DAL.RepositoryCursa handerCursa = new DAL.RepositoryCursa();
                 handerCursa.IngresarRegistro(alumno, misMaterias);
 
-                //Actualizar la interfaz padre:
-
-                //handlerAlumno.mostrarEmpleados();
                 this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al ingresar alumno: " + ex.Message, "Error",
                               MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } 
-
+            }
         }
 
+        /// <summary>
+        /// Obtiene los IDs de las materias seleccionadas en el CheckListBox
+        /// </summary>
+        /// <returns>Lista de IDs de materias seleccionadas</returns>
         private List<int> ObtenerMateriasSeleccionadas()
         {
             List<int> materiasIds = new List<int>();
@@ -135,89 +158,36 @@ namespace Roll_Call.Alumnos
                     materiasIds.Add(materiasDictionary[materiaSeleccionada]);
                 }
             }
-            // materiasIds ahora contiene los IDs de las materias seleccionadas
+
             MessageBox.Show($"IDs de materias seleccionadas: {string.Join(", ", materiasIds)}");
             return materiasIds;
-
-
         }
 
+        // Eventos sin implementación específica (mantenidos para posibles futuras extensiones)
+        private void cbxMaterias_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void panelbtnAlumno_Paint(object sender, PaintEventArgs e) { }
+        private void txtCorreo_TextChanged(object sender, EventArgs e) { }
+        private void txtFechaNac_TextChanged(object sender, EventArgs e) { }
+        private void txtApellidos_TextChanged(object sender, EventArgs e) { }
+        private void txtNombre_TextChanged(object sender, EventArgs e) { }
+        private void label7_Click(object sender, EventArgs e) { }
+        private void label6_Click(object sender, EventArgs e) { }
+        private void label5_Click(object sender, EventArgs e) { }
+        private void label4_Click(object sender, EventArgs e) { }
+        private void label3_Click(object sender, EventArgs e) { }
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void txtFechaNac_ValueChanged(object sender, EventArgs e) { }
 
-        private void cbxMaterias_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelbtnAlumno_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtCorreo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFechaNac_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtApellidos_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
+        /// <summary>
+        /// Carga las materias del diccionario en el CheckListBox
+        /// </summary>
         private void CargarMateriasEnCheckListBox()
         {
-            // Limpiar el CheckedListBox primero
             checkMateria.Items.Clear();
-
-            // Agregar las materias directamente como strings usando las claves del diccionario
             foreach (string materia in materiasDictionary.Keys)
             {
                 checkMateria.Items.Add(materia);
             }
-        }
-
-        private void txtFechaNac_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
